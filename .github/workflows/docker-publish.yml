@@ -3,7 +3,7 @@ name: Build and Push Docker Image
 on:
   push:
     branches:
-      - main
+      - terraform
     paths:
       - terraform/index.html
       - terraform/style.css
@@ -28,3 +28,4 @@ jobs:
 
       - name: Push Docker image
         run: docker push ${{ secrets.DOCKER_USERNAME }}/my-app
+і
