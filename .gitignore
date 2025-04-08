@@ -1,9 +1,7 @@
 terraform.tfvars
+cicd-key.pem
 .terraform/
 .terraform.lock.hcl
 terraform.tfstate
-<<<<<<< HEAD
 terraform.tfstate.backup
-=======
-terraform.tfstate.backup
->>>>>>> e016127c2a0b6195140b83e7ce544fb8621cc972
+

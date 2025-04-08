@@ -27,23 +27,27 @@ resource "aws_instance" "lab_server" {
               EOF
 
   provisioner "file" {
-    source      = "../index.html"
+    source      = "index.html"
     destination = "/home/ubuntu/index.html"
   }
 
 
   provisioner "file" {
-    source      = "../style.css"
+    source      = "style.css"
     destination = "/home/ubuntu/style.css"
   }
 
+  
+
  
-  provisioner "remote-exec" {
-    inline = [
-      "sudo mv /home/ubuntu/index.html /var/www/html/index.html",
-      "sudo mv /home/ubuntu/style.css /var/www/html/style.css"
-    ]
-  }
+ provisioner "remote-exec" {
+  inline = [
+    "sudo mkdir -p /var/www/html",
+    "sudo mv /home/ubuntu/index.html /var/www/html/index.html",
+    "sudo mv /home/ubuntu/style.css /var/www/html/style.css"
+  ]
+}
+
 
   connection {
     type        = "ssh"
